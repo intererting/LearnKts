@@ -1,0 +1,33 @@
+/home/yuliyang/Downloads/android/gradle-7.0.2/src/core-api
+
+@InputFile： 相当于File，表示单个input文件。
+
+@InputDirectory： 相当于File，表示单个input目录。
+
+@Classpath： 相当于Iterable，表示的是类路径上的文件，对于类路径上的文件需要考虑文件的顺序。如果类路径上的文件是jar的话，jar中的文件创建时间戳的修改，并不会影响input。
+
+@CompileClasspath：相当于Iterable，表示的是类路径上的java文件，会忽略类路径上的非java文件。
+
+@OutputFile： 相当于File，表示输出文件。
+
+@OutputFiles： 相当于Map<String, File> 或者 Iterable，表示输出文件。
+
+@OutputDirectories： 相当于Map<String, File> 或者 Iterable，表示输出文件。
+
+@Destroys： 相当于File 或者 Iterable，表示这个task将会删除的文件。
+
+@LocalState： 相当于File 或者 Iterable，表示task的本地状态。
+
+@Console： 表示属性不是input也不是output，但是会影响console的输出。
+
+@Internal： 内部属性，不是input也不是output。
+
+@ReplacedBy： 属性被其他的属性替换了，不能算在input和output中。
+
+@SkipWhenEmpty： 和@InputFiles 跟 @InputDirectory一起使用，如果相应的文件或者目录为空的话，将会跳过task的执行。
+
+@Incremental： 和@InputFiles 跟 @InputDirectory一起使用，用来跟踪文件的变化。
+
+@Optional： 忽略属性的验证。
+
+@PathSensitive： 表示需要考虑paths中的哪一部分作为增量的依据。
