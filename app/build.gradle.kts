@@ -6,9 +6,12 @@ plugins {
 //apply<start.MyPlugin>()
 //apply<ExamplePlugins>()
 
-apply<WorkExamplePlugin>()
+//apply<WorkExamplePlugin>()
 //apply<ProviderPlugin>()
 //apply<ConsumerPlugin>()
+
+
+apply<dsl.ToyPlugin>()
 
 android {
     compileSdk = 31
@@ -25,16 +28,19 @@ android {
 
     buildTypes {
         getByName("release") {
+            the<dsl.ToyExtension>().content = "hello world"
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
         getByName("debug") {
+            the<dsl.ToyExtension>().content = "hello world"
             isMinifyEnabled = false
             //传参
 //            the<BuildTypeExtension>().invocationParameters = "-debug -log"
         }
+
     }
     kotlinOptions {
         jvmTarget = "11"
